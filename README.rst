@@ -1,3 +1,6 @@
+    This fork fixes the package for python3.12, and provides a CICD pipeline for building the package under tag v0.5.0-python3.12fix
+
+
 Font Awesome and Markdown, together!
 ####################################
 

@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
 from markdown.extensions import Extension
 from markdown.inlinepatterns import Pattern
-from markdown.util import etree
+import xml.etree.ElementTree as etree
+
 from .icon_list import icons
 import json
 
@@ -60,10 +61,9 @@ class FontAwesomePattern(Pattern):
 class FontAwesomeExtension(Extension):
     'Pick a good spot for calling the pattern defined above'
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         fontawesome = FontAwesomePattern(fontawesome_pattern)
-        md.inlinePatterns.add('fontawesome', fontawesome, '<reference')
-
+        md.inlinePatterns.register(fontawesome, 'fontawesome', 185)
 
 def makeExtension(*args, **kwargs):
     return FontAwesomeExtension(*args, **kwargs)
